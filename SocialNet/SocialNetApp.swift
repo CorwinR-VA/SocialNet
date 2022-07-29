@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct SocialNetApp: App {
+    @StateObject private var dataController = Controller()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
